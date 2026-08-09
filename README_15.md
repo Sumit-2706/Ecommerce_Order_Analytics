@@ -334,6 +334,6 @@ python3 edge_case_tests.py
 
 ---
 
-**Sumit Kumar Singh**
+**Sumit Kumar Singh**<br>
 Celebal Excellence Intern (CEI) — Data Engineering Track
 Celebal Technologies Private Limited
