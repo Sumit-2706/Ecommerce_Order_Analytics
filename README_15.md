@@ -1,4 +1,4 @@
-# 🛒 E-Commerce Order Analytics System
+# <b4> MINI PROJECT :: E-Commerce Order Analytics System
 
 **Intern Mini Project — Celebal Excellence Intern (CEI) Program**
 **Celebal Technologies Private Limited**
