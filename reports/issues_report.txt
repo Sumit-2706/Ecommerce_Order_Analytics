@@ -1,0 +1,32 @@
+======================================================================
+E-COMMERCE DATA CLEANING REPORT
+Generated: 2026-08-09 18:23:24
+======================================================================
+
+--- Cleaning orders.csv ---
+[orders] 246 rows had a non-standard date format -> normalized to YYYY-MM-DD HH:MM:SS
+[orders] 14 orders have a order_date in the future (flagged, not removed)
+[orders] 140 / 3000 orders (4.7%) have a missing customer_id -> kept as NULL, excluded from customer-level aggregates
+
+--- Cleaning products.csv ---
+[products] 45 product names had extra spaces / inconsistent casing -> trimmed + title-cased
+
+--- Cleaning customers.csv ---
+[customers] 5 / 600 customers (0.8%) have an invalid email address
+
+--- Cleaning order_items.csv ---
+[order_items] 230 rows have negative quantity -> treated as returns, kept in data
+[order_items] 40 rows have quantity = 0 (flagged as invalid/no-op line items)
+[order_items] 18 rows have discount_percent outside the valid 0-100 range -> clipped to [0, 100]
+
+--- Referential integrity check ---
+[integrity] 5 order_items rows reference an order_id that does not exist in orders.csv
+[integrity] 5 orphan rows removed from cleaned_data/order_items.csv
+
+Cleaned files written to ./cleaned_data/
+  orders.csv       : 3000 rows
+  order_items.csv  : 7500 rows
+  products.csv     : 150 rows
+  customers.csv    : 600 rows
+
+Customer IDs with invalid emails: [51, 135, 323, 566, 583]
